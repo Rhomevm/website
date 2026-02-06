@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhome Vacation Management | Zion East Side Property Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #FFF5EE;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        /* Hero Section - Full Width with Background Photo */
+        .hero {
+            background-image: url('https://img1.wsimg.com/isteam/ip/c7d1552d-f7ff-4cea-afdf-ad3be2ef83a3/3633%20Cyprus%20Point%20Road-33.jpg/:/cr=t:7.91%25,l:0%25,w:84.18%25,h:84.18%25/rs=w:2880,h:853');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 180px 80px;
+            text-align: left;
+            width: 100%;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 40px;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 16px 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: #E74C3C;
+            color: #ffffff;
+            border: 2px solid #E74C3C;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #ffffff;
+            color: #2c3e50;
+        }
+        
+        /* Comparison Section - Full Width */
+        .comparison {
+            padding: 80px 40px;
+            background-color: #f8f9fa;
+            width: 100%;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .comparison-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        
+        .comparison-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #E74C3C;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+        }
+        
+        .comparison-card.better h3 {
+            color: #27ae60;
+        }
+        
+        .comparison-card ul {
+            list-style: none;
+        }
+        
+        .comparison-card li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        .comparison-card li:last-child {
+            border-bottom: none;
+        }
+        
+        .comparison-card li::before {
+            content: '✕';
+            color: #E74C3C;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .comparison-card.better li::before {
+            content: '✓';
+            color: #27ae60;
+        }
+        
+        /* Properties Section - Full Width */
+        .properties {
+            padding: 80px 40px;
+            background-color: #ffffff;
+            width: 100%;
+        }
+        
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+        }
+        
+        .property-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .property-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .cottonwood {
+            background-image: url('https://img1.wsimg.com/isteam/ip/c7d1552d-f7ff-4cea-afdf-ad3be2ef83a3/_MG_3710-HDR.jpg/:/cr=t:0.01%25,l:0%25,w:99.98%25,h:99.98%25/rs=w:1280,h:854');
+        }
+        
+        .gambit {
+            background-image: url('https://img1.wsimg.com/isteam/ip/c7d1552d-f7ff-4cea-afdf-ad3be2ef83a3/Screenshot%202025-08-07%20131659.png/:/');
+        }
+        
+        .elevation {
+            background-image: url('https://img1.wsimg.com/isteam/ip/c7d1552d-f7ff-4cea-afdf-ad3be2ef83a3/Screenshot%202025-08-07%20131513.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1280,h:955');
+        }
+        
+        .property-info {
+            padding: 25px;
+        }
+        
+        .property-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .property-info p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .property-stats {
+            display: flex;
+            gap: 20px;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stat strong {
+            color: #27ae60;
+            font-size: 1.1rem;
+        }
+        
+        /* Services Section - Full Width */
+        .services {
+            padding: 80px 40px;
+            background-color: #f8f9fa;
+            width: 100%;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+        }
+        
+        .service-card {
+            background: #ffffff;
+            padding: 35px 25px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #E74C3C;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+        }
+        
+        .service-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Lead Form Section - Full Width */
+        .lead-form {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ffffff;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .lead-form h2 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .lead-form p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            color: #333;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #E74C3C;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: #E74C3C;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .submit-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        /* FAQ Section - Full Width */
+        .faq {
+            padding: 80px 40px;
+            background-color: #ffffff;
+            width: 100%;
+        }
+        
+        .faq-item {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .faq-answer {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Footer CTA - Full Width */
+        .footer-cta {
+            padding: 80px 40px;
+            background-color: #E74C3C;
+            text-align: center;
+            color: #ffffff;
+            width: 100%;
+        }
+        
+        .footer-cta h2 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .contact-info {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            opacity: 0.9;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .comparison-grid,
+            .properties-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Earn More From Your Southern Utah Vacation Home</h1>
+            <p class="hero-subtitle">Professional property management for Zion-area vacation rentals. Local expertise, transparent pricing, proven results.</p>
+            <div class="cta-buttons">
+                <a href="#estimate" class="btn btn-primary">Get My Free Revenue Estimate</a>
+                <a href="#comparison" class="btn btn-secondary">See How We Compare</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison" id="comparison">
+        <h2 class="section-title">Why Owners Choose Rhome</h2>
+        <div class="comparison-grid">
+            <div class="comparison-card">
+                <h3>Big Management Companies</h3>
+                <ul>
+                    <li>Call centers, 1-800 numbers</li>
+                    <li>25-30% management fees</li>
+                    <li>Based in St. George (45+ min away)</li>
+                    <li>Generic "Southern Utah" approach</li>
+                    <li>Rotating staff, no local knowledge</li>
+                </ul>
+            </div>
+            <div class="comparison-card better">
+                <h3>Rhome Vacation Management</h3>
+                <ul>
+                    <li>Dedicated account manager</li>
+                    <li>Flexible pricing: 10-20% based on services</li>
+                    <li>10 minutes from your property</li>
+                    <li>Zion East Side specialists</li>
+                    <li>Family-run, consistent team since 2022</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="properties">
+        <h2 class="section-title">Properties We Manage</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 10px;">Real results from real homes in your area</p>
+        
+        <div class="properties-grid">
+            <div class="property-card">
+                <div class="property-image cottonwood">Cottonwood Compass</div>
+                <div class="property-info">
+                    <h3>Cottonwood Compass</h3>
+                    <p>Colorado City, AZ • Coming Soon</p>
+                    <div class="property-stats">
+                        <div class="stat">Status: <strong>Pre-launch</strong></div>
+                        <div class="stat">Est. Revenue: <strong>$40k+</strong></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="property-card">
+                <div class="property-image gambit">The Gambit</div>
+                <div class="property-info">
+                    <h3>The Gambit at Copper Rock</h3>
+                    <p>Washington, UT • Golf Resort Community</p>
+                    <div class="property-stats">
+                        <div class="stat">Revenue: <strong>$105,315</strong></div>
+                        <div class="stat">ADR: <strong>$598</strong></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="property-card">
+                <div class="property-image elevation">Elevation 40</div>
+                <div class="property-info">
+                    <h3>Elevation 40</h3>
+                    <p>Apple Valley, UT • Near Zion East Entrance</p>
+                    <div class="property-stats">
+                        <div class="stat">Revenue: <strong>$215,276</strong></div>
+                        <div class="stat">Occ: <strong>83%</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2 class="section-title">Full-Service Management</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">$</div>
+                <h3>Dynamic Pricing</h3>
+                <p>Maximize revenue with seasonal adjustments and local event pricing. We monitor Zion visitation patterns daily.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">24/7</div>
+                <h3>24/7 Guest Support</h3>
+                <p>We handle late-night emergencies and guest issues. You focus on your investment, not the operations.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">✓</div>
+                <h3>Professional Cleaning</h3>
+                <p>5-star turnover every time. Our cleaning team knows each property intimately and inspects after every stay.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Local Maintenance</h3>
+                <p>Vetted contractors who know vacation rentals. Fast response times because we're actually local.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Monthly Reporting</h3>
+                <p>Know exactly what you earned, what we spent, and how your property compares to the market.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Direct Communication</h3>
+                <p>One point of contact. No call centers. No ticketing systems. Real people who know your property.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📸</div>
+                <h3>Professional Photography</h3>
+                <p>High-quality listing photos that showcase your property's best features and drive more bookings.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🛏️</div>
+                <h3>Linens & Supplies</h3>
+                <p>Full inventory management. Premium linens, toiletries, and amenities restocked automatically.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Form Section -->
+    <section class="lead-form" id="estimate">
+        <h2>What's Your Home Worth?</h2>
+        <p>Get a free revenue analysis for your Southern Utah property. No obligation.</p>
+        
+        <div class="form-container">
+            <form action="https://formspree.io/f/xgozgzeg" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Smith">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Property Address or Area</label>
+                    <input type="text" id="address" name="address" required placeholder="123 Main St, Apple Valley, UT">
+                </div>
+                
+                <div class="form-group">
+                    <label for="bedrooms">Number of Bedrooms</label>
+                    <select id="bedrooms" name="bedrooms" required>
+                        <option value="">Select...</option>
+                        <option value="1">1 Bedroom</option>
+                        <option value="2">2 Bedrooms</option>
+                        <option value="3">3 Bedrooms</option>
+                        <option value="4">4 Bedrooms</option>
+                        <option value="5+">5+ Bedrooms</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-btn">Get My Free Revenue Estimate</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2 class="section-title">Common Questions from Property Owners</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">How much can I really make?</div>
+            <div class="faq-answer">Based on our current properties: Elevation 40 earned $215,276 in the past year with 83% occupancy. The Gambit earned $105,315 at a $598 average nightly rate. Your specific revenue depends on location, size, and seasonality, but most 3-bedroom homes near Zion earn $30,000-$60,000 annually.</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">What if I want to use my home sometimes?</div>
+            <div class="faq-answer">You maintain full control. Block your own dates anytime through our owner portal with no penalties. We only make money when you make money.</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">How do I know my home is safe?</div>
+            <div class="faq-answer">We require $1M liability insurance, security deposits on all bookings, and pre-screen guests. Plus, our team lives locally for true emergencies — not 45 minutes away like St. George managers.</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">What are your management fees?</div>
+            <div class="faq-answer">Our management fees range from 10% to 20% of booking revenue, depending on the level of service your property requires. Standard full-service management is typically 20%. Properties needing specialized care or premium services may have different rates. We customize our proposal based on your specific property and goals.</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">What makes you different from Vacasa or Red Rock?</div>
+            <div class="faq-answer">When your guest has an issue at 9pm, they reach our local team — not a 1-800 number. We know your property because we're in it regularly. We're 10 minutes away, not 45. That's the difference between a local partner and a national call center.</div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+        <h2>Ready to Stop Managing and Start Earning?</h2>
+        <p>Join the property owners who trust Rhome with their Zion-area homes.</p>
+        <a href="#estimate" class="btn btn-secondary" style="border-color: #ffffff; color: #ffffff;">Get My Free Revenue Estimate</a>
+        <div class="contact-info">
+            Questions? Contact us at support@rhomevm.com
+        </div>
+    </section>
+
+</body>
+</html>
